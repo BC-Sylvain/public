@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Iframe - test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+</head>
+<body>
+<div><b>This is a test</b></div>
+<br />
+<a href="javascript:void(0)" onclick="openCenteredPopup( 'https://www.whatismyip-address.com/', 1000, 800, 'scrollbars=yes,resizable=yes', 'popBet' )">2837097713</a>
+
+<script type="text/javascript">
+
+function openCenteredPopup( page, iWidth, iHeight, popProprietes, popName ){
+	var Left = window.screen.width/2 - (iWidth/2); 
+	var Top = window.screen.height/2  - (iHeight/2); 
+	
+	var strProp ='width=' + iWidth + ',height='+ iHeight +',left=' + Left + ',top=' + Top;
+	
+	if (popProprietes != "") {
+	    strProp = strProp + ',' + popProprietes;
+	}
+
+    if (popName == undefined) {
+        popName = 'Test Popup';
+    }
+
+    return windowOpener(page, popName, strProp);
+}
+
+function windowOpener(url, name, args) {
+    if (typeof (tmpWindow) != "object")
+        tmpWindow = window.open(url, name, args);
+    else if (tmpWindow && !tmpWindow.closed)
+        tmpWindow.location.href = url;
+    else
+        tmpWindow = window.open(url, name, args);
+    tmpWindow.focus();
+
+    return tmpWindow;
+}
+</script>
+
+</body>
+</html>
